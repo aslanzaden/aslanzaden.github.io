@@ -13,7 +13,7 @@ const someHaveScreenshots = projects.some((p) => p.screenshots.length > 0)
   <section id="projects" class="section">
     <div class="container">
       <div class="section-head">
-        <span class="eyebrow">// featured work at prodata</span>
+        <span class="eyebrow">02 · Featured work at Prodata</span>
         <h2 class="section-title">Modules I built</h2>
         <p v-if="allHaveScreenshots" class="section-lead">
           These two are business-critical systems I work on at Prodata. Click a screenshot to see it full size.
@@ -88,13 +88,36 @@ h3 {
   font-size: 17px;
 }
 .points {
+  list-style: none;
   margin: 18px 0 0;
-  padding-left: 18px;
+  padding: 0;
   display: grid;
-  gap: 8px;
+  gap: 10px;
 }
-.points li::marker {
-  color: var(--accent);
+.points li {
+  position: relative;
+  padding-left: 26px;
+  font-weight: 500;
+}
+/* Waypoint bullet joined by a short dashed route. */
+.points li::before {
+  content: '';
+  position: absolute;
+  left: 3px;
+  top: 8px;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  border: 2px solid var(--sec);
+  background: var(--surface);
+}
+.points li:not(:last-child)::after {
+  content: '';
+  position: absolute;
+  left: 7px;
+  top: 21px;
+  height: calc(100% - 8px);
+  border-left: 2px dashed var(--route);
 }
 .metrics {
   display: flex;
@@ -108,9 +131,10 @@ h3 {
 }
 .metrics dd {
   margin: 0;
-  font-size: 24px;
-  font-weight: 800;
-  color: var(--accent);
+  font-family: var(--display);
+  font-size: 26px;
+  font-weight: 700;
+  color: var(--sec);
 }
 .metrics dt {
   font-size: 13px;

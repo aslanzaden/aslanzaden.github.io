@@ -34,7 +34,7 @@ function toggleTheme() {
   <header class="nav">
     <div class="container nav-inner">
       <a href="#top" class="brand" @click="open = false">
-        <span class="logo">NA</span>
+        <span class="logo"><span>NA</span></span>
         <span class="brand-name">{{ profile.name }}</span>
       </a>
 
@@ -86,11 +86,20 @@ function toggleTheme() {
   place-items: center;
   width: 34px;
   height: 34px;
-  border-radius: 9px;
+  border-radius: 50% 50% 50% 4px;
+  transform: rotate(-45deg);
   background: var(--accent);
   color: var(--accent-text);
+  font-family: var(--display);
   font-size: 13px;
-  font-weight: 800;
+  font-weight: 700;
+  transition: background 0.2s ease;
+}
+.logo span {
+  transform: rotate(45deg);
+}
+.brand:hover .logo {
+  background: var(--pin);
 }
 .links {
   display: flex;

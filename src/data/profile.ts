@@ -4,6 +4,7 @@ export const profile = {
   name: 'Novrasta Aslanzade',
   role: 'Frontend Developer',
   location: 'Baku, Azerbaijan',
+  coords: '40.41° N, 49.87° E',
   email: 'novrasta.aslanzade@gmail.com',
   github: 'https://github.com/aslanzaden',
   linkedin: 'https://www.linkedin.com/in/novrasta-aslanzade',
@@ -11,9 +12,12 @@ export const profile = {
   headline: 'Frontend Developer building scalable interfaces for business-critical systems.',
   tagline:
     '2+ years of experience delivering production-ready web applications with Vue.js, Nuxt.js, React and TypeScript, from enterprise dashboards and reusable UI component libraries to interactive map-based applications.',
-  summary: [
-    'At Prodata LLC I develop and maintain enterprise systems for procurement, insurance, purchase orders and fleet management, used by 500+ internal business users. My work spans frontend architecture for multiple business modules, REST API integration and server-state management with TanStack Query, and a shared Storybook component library used across 4 applications.',
-    'I focus on maintainable architecture, reusable components, performance and clean user experience. I work in Agile teams on a 2-week sprint cadence, collaborating closely with backend developers and business stakeholders to turn business requirements into efficient, user-friendly solutions.',
+  // Short "what I do" tiles shown under the hero.
+  focus: [
+    { icon: 'dashboard', title: 'Enterprise dashboards', text: 'Procurement, insurance, purchase order and fleet systems' },
+    { icon: 'layers', title: 'Component libraries', text: 'Shared Storybook UI kit reused across 4 applications' },
+    { icon: 'map', title: 'Maps & GIS', text: 'Leaflet, Turf.js and real-time vehicle tracking' },
+    { icon: 'nodes', title: 'Frontend architecture', text: 'Modular structure and TanStack Query server state' },
   ],
 }
 
@@ -38,22 +42,26 @@ export const experience = {
   location: 'Baku, Azerbaijan',
   period: 'Apr 2024 — Present',
   context: 'Enterprise procurement, insurance, purchase order & fleet management systems',
-  highlights: [
-    'Developed and maintained 6+ enterprise web applications in Vue.js, Nuxt.js, React and TypeScript, serving 500+ internal users across procurement, insurance and fleet operations.',
-    'Integrated REST APIs with Axios and TanStack Query; cut redundant network calls by 35% through query deduplication and cache invalidation strategies.',
-    'Designed and maintained a shared Storybook component library of 40+ components, cutting new-feature development time by ~30% and removing visual inconsistencies across 4 business applications.',
-    'Designed scalable frontend architecture for procurement, insurance, purchase order and fleet modules, supporting 10+ concurrent feature teams without major refactors.',
-    'Shipped releases on a 2-week sprint cadence in close collaboration with backend developers and business stakeholders.',
+  tags: ['Vue.js', 'Nuxt.js', 'React', 'TypeScript', 'Agile · 2-week sprints'],
+  impact: [
+    { value: '6+', label: 'enterprise apps', text: 'Built and maintained for 500+ internal users' },
+    { value: '−35%', label: 'redundant API calls', text: 'Query deduplication and cache invalidation' },
+    { value: '−30%', label: 'feature dev time', text: 'Shared Storybook library of 40+ components' },
+    { value: '10+', label: 'feature teams', text: 'Scalable architecture, no major refactors' },
   ],
   otherProjects: [
     {
       name: 'Insurance Management System',
-      text: 'Turned a 12-step manual process into 5 guided steps, cutting average request-creation time by 45%.',
+      metric: '−45%',
+      metricLabel: 'request-creation time',
+      text: 'A 12-step manual process turned into 5 guided steps.',
       screenshots: [] as Screenshot[],
     },
     {
       name: 'Purchase Order Management System',
-      text: 'Dashboard with approval chains and real-time status tracking; order-approval turnaround went from 3 days to under 1 day.',
+      metric: '3d → <1d',
+      metricLabel: 'approval turnaround',
+      text: 'Approval chains with real-time status tracking.',
       screenshots: [] as Screenshot[],
     },
   ],
@@ -78,9 +86,9 @@ export const projects: Project[] = [
     summary:
       'A real-time GIS platform for dispatch operators to track, monitor and route a fleet of 1,300+ vehicles on a live map.',
     points: [
-      'Live vehicle positions streamed from a WebSocket/STOMP feed handling thousands of sensor events per minute.',
-      'Leaflet marker clustering and Turf.js geospatial calculations keep the map interactive at sub-second refresh, with no dropped frames on high-density routes.',
-      'Route drawing and editing tools for dispatch operators built on Leaflet-Geoman, with geodesic distance calculations.',
+      'Live positions from a WebSocket/STOMP feed',
+      'Clustered Leaflet map with Turf.js geo calculations',
+      'Route drawing and editing with Leaflet-Geoman',
     ],
     metrics: [
       { value: '1,300+', label: 'tracked vehicles' },
@@ -133,9 +141,9 @@ export const projects: Project[] = [
     summary:
       'The frontend for a full-cycle procurement platform, from vendor qualification through tender creation and commercial evaluation to contract awarding.',
     points: [
-      'Dynamic multi-step forms with conditional validation covering 15+ distinct request types across procurement categories.',
-      'Server state managed with TanStack Query: cached lists, deduplicated requests and targeted invalidation after each workflow action.',
-      'Built from the shared component library, so tables, steppers, badges and modals stay consistent with the rest of the product suite.',
+      'Multi-step forms with conditional validation',
+      'TanStack Query caching and targeted invalidation',
+      'Built on the shared component library',
     ],
     metrics: [
       { value: '4', label: 'lifecycle stages' },

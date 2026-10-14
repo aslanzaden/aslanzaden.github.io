@@ -1,17 +1,20 @@
 <script setup lang="ts">
 import { education, languages, skills } from '../data/profile'
+
+const groupColors = ['blue', 'teal', 'violet', 'orange', 'green', 'yellow']
+const tint = (c: string) => ({ '--c': `var(--c-${c})`, '--c-soft': `var(--c-${c}-soft)` })
 </script>
 
 <template>
   <section id="skills" class="section">
     <div class="container">
       <div class="section-head">
-        <span class="eyebrow">// toolbox</span>
+        <span class="eyebrow">04 · Toolbox</span>
         <h2 class="section-title">Skills &amp; background</h2>
       </div>
 
       <div class="skills">
-        <div v-for="s in skills" :key="s.group" class="group card">
+        <div v-for="(s, i) in skills" :key="s.group" class="group card" :style="tint(groupColors[i % groupColors.length])">
           <h3>{{ s.group }}</h3>
           <div class="tags">
             <span v-for="item in s.items" :key="item" class="tag">{{ item }}</span>
@@ -49,6 +52,23 @@ import { education, languages, skills } from '../data/profile'
 }
 .group {
   padding: 20px;
+  border-top: 4px solid var(--c);
+}
+.group h3 {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.group h3::before {
+  content: '';
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--c);
+}
+.group .tag {
+  background: var(--c-soft);
+  border-color: color-mix(in srgb, var(--c) 30%, transparent);
 }
 h3 {
   font-size: 15px;
