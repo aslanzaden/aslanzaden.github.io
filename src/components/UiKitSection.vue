@@ -33,7 +33,7 @@ async function copyInstall() {
   <section id="ui-kit" class="section">
     <div class="container">
       <div class="section-head">
-        <span class="eyebrow">// open source</span>
+        <span class="eyebrow">03 · Open source</span>
         <h2 class="section-title">UI Kit</h2>
         <p class="section-lead">{{ uiKit.description }}</p>
       </div>
